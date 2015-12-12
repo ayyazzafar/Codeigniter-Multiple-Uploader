@@ -12,13 +12,13 @@
 	 * @link		https://github.com/ayyazzafar/Codeigniter-Multiple-Uploader/
 	 */
 	
-function do_upload($configs = array())
+function do_upload($params = array())
 {
-	// print_r($_FILES); die;
+	// print_r($params); return;
 
 	$CI = & get_instance();
 	$defaults = array(
-		'file'				=>	'documents', 
+		'file'				=>	'', 
 		"max_size"			=> 0,
 		"max_width"			=> 0,
 		"max_height"		=> 0,
@@ -34,16 +34,16 @@ function do_upload($configs = array())
 		"image_height"		=> "",
  		"remove_spaces"		=> TRUE,
 	);
-	$file = $configs['file'];
+	$file = $params['file'];
 
 	if(isset($_FILES[$file]))
 	{
 		// setting configurations
 		foreach($defaults as $key => $value):
 
-			if(!isset($configs[$key]))
+			if(!isset($params[$key]))
 			{
-				$configs[$key] = $value;
+				$params[$key] = $value;
 			}
 
 		endforeach;
@@ -87,7 +87,8 @@ function do_upload($configs = array())
 		for($i=0; $i<$total_files; $i++):
 			
 
-			$CI->load->library('upload', $configs);
+			$CI->load->library('upload');
+			$CI->upload->initialize( $params);
 
 			if ( ! $CI->upload->do_upload($file.$i))
 			{
@@ -100,7 +101,7 @@ function do_upload($configs = array())
 			}
 			
 		endfor;
-
+		
 		return $uploaded_files;
 	}
 	else

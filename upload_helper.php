@@ -8,8 +8,8 @@
 	 * @package		CodeIgniter
 	 * @subpackage	Libraries
 	 * @category	Uploads
-	 * @author		Conveyor Group <me@ayyazzafar.com>
-	 * @link		https://github.com/ayyazzafar/Codeigniter-Multiple-Uploader/
+	 * @author <me@ayyazzafar.com>
+	 * @link https://github.com/ayyazzafar/Codeigniter-Multiple-Uploader/
 	 */
 	
 function do_upload($params = array())
@@ -18,17 +18,17 @@ function do_upload($params = array())
 
 	$CI = & get_instance();
 	$defaults = array(
-		'file'				=>	'', 
-		"max_size"			=> 0,
-		"max_width"			=> 0,
+		'file'			=> '', 
+		"max_size"		=> 0,
+		"max_width"		=> 0,
 		"max_height"		=> 0,
 		"max_filename"		=> 0,
 		"allowed_types"		=> "",
-		"file_temp"			=> "",
-		"file_name"			=> "",
-		"file_size"			=> "500000",
+		"file_temp"		=> "",
+		"file_name"		=> "",
+		"file_size"		=> "500000",
 		"upload_path"		=> "./",
-		"overwrite"			=> FALSE,
+		"overwrite"		=> FALSE,
 		"encrypt_name"		=> true,
 		"image_width"		=> "",
 		"image_height"		=> "",
